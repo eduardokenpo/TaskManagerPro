@@ -50,7 +50,7 @@ public class TaskManagerUI {
         boolean exit = false;
         while (!exit) {
             int choice = getUserChoice();
-            handleUserChoice(choice);
+            exit = handleUserChoice(choice);
         }
     }
 
