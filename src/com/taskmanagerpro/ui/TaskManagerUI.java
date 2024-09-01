@@ -111,9 +111,14 @@ public class TaskManagerUI {
     private void createProject() {
         String projectName = promptForProjectName();
         Project project = new Project(projectName);
-        taskManager.addProject(project);
-        System.out.println("Project '" + projectName + "' created.");
+
+        if (taskManager.addProject(project)) {
+            System.out.println("Project '" + projectName + "' created.");
+        } else {
+            System.out.println("Error: A project with the name '" + projectName + "' already exists. Please choose a different name.");
+        }
     }
+
     /**
      * Agrega una nueva tarea a un proyecto existente.
      * Solicita al usuario el título y la descripción de la tarea, y la añade al proyecto seleccionado.

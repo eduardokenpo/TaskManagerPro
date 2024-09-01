@@ -4,7 +4,6 @@ import com.taskmanagerpro.service.TaskManager;
 import com.taskmanagerpro.ui.TaskManagerUI;
 
 import java.io.IOException;
-
 /**
  * Clase principal que inicia la aplicación TaskManagerPro.
  * Se encarga de cargar los datos, iniciar la interfaz de usuario y guardar los datos antes de salir.

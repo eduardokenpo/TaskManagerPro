@@ -14,8 +14,25 @@ public class TaskManager {
         this.projects = new ArrayList<>();
     }
 
-    public void addProject(Project project) {
+    public boolean addProject(Project project) {
+        // Normalizar el nombre del proyecto para evitar duplicados con diferentes mayúsculas/minúsculas
+        String normalizedProjectName = java.text.Normalizer.normalize(project.getName(), java.text.Normalizer.Form.NFD)
+                .replaceAll("\\p{M}", "")
+                .toLowerCase();
+
+        // Verificar si ya existe un proyecto con el mismo nombre
+        for (Project existingProject : projects) {
+            String normalizedExistingName = java.text.Normalizer.normalize(existingProject.getName(), java.text.Normalizer.Form.NFD)
+                    .replaceAll("\\p{M}", "")
+                    .toLowerCase();
+            if (normalizedExistingName.equals(normalizedProjectName)) {
+                return false; // El proyecto ya existe, retornar false
+            }
+        }
+
+        // Si no existe, añadir el proyecto y retornar true
         projects.add(project);
+        return true;
     }
 
     public List<Project> getProjects() {
