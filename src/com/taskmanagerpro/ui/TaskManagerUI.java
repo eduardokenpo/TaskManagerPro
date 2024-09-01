@@ -1,5 +1,4 @@
 package com.taskmanagerpro.ui;
-
 import com.taskmanagerpro.model.Project;
 import com.taskmanagerpro.model.Task;
 import com.taskmanagerpro.service.TaskManager;
@@ -16,8 +15,8 @@ import java.util.Scanner;
 public class TaskManagerUI {
     private static final String INVALID_CHOICE_MESSAGE = "Invalid choice, please try again.";
 
-    private TaskManager taskManager;
-    private Scanner scanner;
+    private final TaskManager taskManager;
+    private final Scanner scanner;
 
     /**
      * Constructor de TaskManagerUI.
@@ -66,7 +65,7 @@ public class TaskManagerUI {
      * @param choice Opción seleccionada por el usuario en el menú principal.
      */
 
-    private void handleUserChoice(int choice) {
+    private boolean handleUserChoice(int choice) {
         switch (choice) {
             case 1 -> createProject();
             case 2 -> addTaskToProject();
@@ -75,10 +74,15 @@ public class TaskManagerUI {
             case 5 -> markTaskAsCompleted();
             case 6 -> removeProject();
             case 7 -> removeTaskFromProject();
-            case 8 -> exitApplication();
+            case 8 -> {
+                exitApplication();
+                return true; // Indica que se debe salir del bucle
+            }
             default -> System.out.println(INVALID_CHOICE_MESSAGE);
         }
+        return false; // Continúa el bucle si no se eligió salir
     }
+
     /**
      * Muestra el menú principal de la aplicación.
      */

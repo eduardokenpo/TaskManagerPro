@@ -1,5 +1,4 @@
 package com.taskmanagerpro.service;
-
 import com.taskmanagerpro.model.Project;
 import com.taskmanagerpro.model.Task;
 
@@ -117,6 +116,7 @@ public class TaskManager {
      * @throws IOException Si ocurre un error durante la carga.
      * @throws ClassNotFoundException Si la clase Project no puede ser encontrada.
      */
+    @SuppressWarnings("unchecked")// ignora la advertencia
     public void loadData(String filePath) throws IOException, ClassNotFoundException {
         try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(filePath))) {
             projects = (List<Project>) ois.readObject();
