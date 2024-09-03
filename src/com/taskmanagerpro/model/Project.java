@@ -1,5 +1,4 @@
 package com.taskmanagerpro.model;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -8,9 +7,10 @@ import java.util.List;
  * La clase Project representa un proyecto que contiene múltiples tareas.
  * Implementa Serializable para permitir que los objetos de esta clase se puedan guardar y cargar desde un archivo.
  */
+@SuppressWarnings("ALL")
 public class Project implements Serializable {
-    private String name;
-    private List<Task> tasks;
+    private final String name;
+    private final List<Task> tasks;
 
     /**
      * Constructor de Project.
@@ -51,6 +51,7 @@ public class Project implements Serializable {
      * Filtra y devuelve solo las tareas que no han sido completadas.
      * @return Una lista de tareas pendientes.
      */
+    @SuppressWarnings("unused")
     public List<Task> getPendingTasks() {
         List<Task> pendingTasks = new ArrayList<>();
         for (Task task : tasks) {
@@ -66,6 +67,7 @@ public class Project implements Serializable {
      * Filtra y devuelve solo las tareas que han sido completadas.
      * @return Una lista de tareas completadas.
      */
+    @SuppressWarnings("unused")
     public List<Task> getCompletedTasks() {
         List<Task> completedTasks = new ArrayList<>();
         for (Task task : tasks) {

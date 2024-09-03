@@ -8,6 +8,7 @@ import java.io.IOException;
  * Clase principal que inicia la aplicación TaskManagerPro.
  * Se encarga de cargar los datos, iniciar la interfaz de usuario y guardar los datos antes de salir.
  */
+@SuppressWarnings("ALL")
 public class Main {
     private static final String DATA_FILE = "taskmanager.dat";
 
@@ -18,7 +19,7 @@ public class Main {
     public static void main(String[] args) {
         TaskManager taskManager = new TaskManager();
 
-        // Intentar cargar los datos guardados desde el archivo
+        // cargar los datos guardados desde el archivo
         try {
             taskManager.loadData(DATA_FILE);
             System.out.println("Data loaded successfully.");

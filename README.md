@@ -15,7 +15,7 @@ TaskManagerPro es una aplicación de consola escrita en Java que permite a los u
 ## Requisitos
 
 - **Java 8 o superior**
-- **IntelliJ IDEA** (o cualquier otro IDE que soporte Java)
+- **IntelliJ IDEA** (o cualquier otro IDE que so porte Java)
 
 ## Instalación y Ejecución
 
